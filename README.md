@@ -1,9 +1,10 @@
 # alpine fetch
-a gfetch clone but for alpine linux, it fetches some information about your system
-<img width="570" height="177" alt="afetch" src="https://github.com/user-attachments/assets/79b34eed-26b9-4976-9d35-de6c3efac08f" />
+a gfetch clone but for linux, it fetches some information about your system
+it is named "alpine fetch" because it was originally written in alpine linux
+<img width="543" height="339" alt="afetch" src="https://github.com/user-attachments/assets/63035e20-50c0-4501-ba10-c7eefc2dd2c6" />
 
 ## note
-- this was made on Alpine Linux, this script is NOT guaranteed to work well on any other linux distro.
+- this may or may not work well on some linux distributions
 - all credit shall go to https://github.com/arwn/gfetch & https://dev.to/beta_shorts_7f1150259405a/building-a-system-information-fetch-tool-in-bash-56h0
 
 ## dependencies
