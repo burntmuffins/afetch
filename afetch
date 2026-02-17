@@ -15,7 +15,7 @@ arch=$(uname -m)
 uptime=$(uptime | sed -E 's/^[^,]*up *//; s/, *[[:digit:]]* users?.*//; s/min/minutes/; s/([[:digit:]]+):0?([[:digit:]]+)/\1 hours, \2 minutes/')
 
 # memory usage
-ram=$(free --mega | awk 'NR==2{printf "%s/%sMB", $3, $2}')
+ram=$(free -m | awk 'NR==2{printf "%s/%sMB", $3, $2}')
 
 # cpu model
 cpu=$(grep "model name" /proc/cpuinfo | head -1 | cut -d ':' -f2)
