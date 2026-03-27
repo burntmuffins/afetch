@@ -5,19 +5,14 @@
 # suppress errors
 exec 2>/dev/null
 
-# os name
 os=$(. /etc/os-release && echo ${NAME})
 
-# os arch
 arch=$(uname -m)
 
-# uptime
 uptime=$(uptime | sed -E 's/^[^,]*up *//; s/, *[[:digit:]]* users?.*//; s/min/minutes/; s/([[:digit:]]+):0?([[:digit:]]+)/\1 hours, \2 minutes/')
 
-# memory usage
 ram=$(free -m | awk 'NR==2{printf "%s/%s MiB", $3, $2}')
 
-# cpu model
 cpu=$(grep "model name" /proc/cpuinfo | head -1 | cut -d ':' -f2)
 
 # display resolution
@@ -28,15 +23,14 @@ height=$(echo $dimensions | sed 's/.*x//')
 ## this should improve how the output looks if xdpyinfo returns an error
 ## is held up by hopes and dreams
 xdpyinfo > /dev/null 2>&1 &&
-	export resolution=$(printf "$width x $height")
+	resolution=$(printf "$width x $height")
 
 # root partition's filesystem
-fs=$(df -T | grep -w "/" | awk '{printf $2}')
+fs=$(df -T ~ | awk 'NR==2 {printf $2}')
 
 # root partition's used space
-disk=$(df -h | grep -w "/" | awk '{print $1":", $3}' | sed 's/\/dev\///')
+disk=$(df -h ~ | awk 'NR==2 {print $1":", $3}' | sed 's/\/dev\///')
 
-# hostname
 hostname=$(cat /etc/hostname)
 
 # the output
